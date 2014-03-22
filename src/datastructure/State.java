@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class State {
 	private int id;
-	private boolean isFinalState;
+	private boolean isTerminalState;
 	private boolean isVisited; // Used for traversing
 	private ArrayList<State> neighborStates;
 	private Reward reward;
@@ -19,11 +19,15 @@ public class State {
 	public State(int id, int featureLength) {
 		super();
 		this.id = id;
-		this.isFinalState = false;
+		this.isTerminalState = false;
 		this.neighborStates = new ArrayList<State>();
 		this.reward = null;
 	}
 
+	public void setStateAsTerminal(){
+		this.isTerminalState = true;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -33,11 +37,11 @@ public class State {
 	}
 
 	public boolean isFinalState() {
-		return isFinalState;
+		return isTerminalState;
 	}
 
 	public void setFinalState(boolean isFinalState) {
-		this.isFinalState = isFinalState;
+		this.isTerminalState = isFinalState;
 	}
 
 	public ArrayList<State> getNeighborStates() {
@@ -68,6 +72,7 @@ public class State {
 	public void setVisited(boolean isVisited) {
 		this.isVisited = isVisited;
 	}
+	
 
 	@Override
 	public String toString() {

@@ -9,6 +9,13 @@ import java.util.TreeMap;
 public class Utility {
 	private TreeMap<State, Double> stateToUtilityMap;
 
+	
+	
+	public Utility() {
+		super();
+		this.stateToUtilityMap = new TreeMap<State, Double>();
+	}
+
 	public void setUtilityOfAState(State state, Double utility) {
 		if (stateToUtilityMap.containsKey(state)) {
 			System.out.println("Error! This state already has an action");

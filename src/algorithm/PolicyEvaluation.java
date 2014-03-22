@@ -1,15 +1,15 @@
 package algorithm;
 
-import datastructure.MDP;
-import datastructure.Policy;
+import datastructure.*;
 
 public class PolicyEvaluation {
 	private int numberOfIterations;
 	private double gamma; // should be between 0 and 1
 	private Policy policy;
 	private MDP mdp;
-	
-	public PolicyEvaluation(int numberOfIterations, double gamma, MDP mdp, Policy policy) {
+
+	public PolicyEvaluation(int numberOfIterations, double gamma, MDP mdp,
+			Policy policy) {
 		if (gamma > 1.0 || gamma <= 0.0) {
 			throw new IllegalArgumentException("Gamma must be > 0 and <= 1.0");
 		}
@@ -18,8 +18,21 @@ public class PolicyEvaluation {
 		this.policy = policy;
 		this.mdp = mdp;
 	}
-//	
-//	public Utility evaluate(){
-//		
-//	}
+
+	public Utility evaluate() {
+		Utility utility = new Utility();
+		for (int iteration = 0; iteration < numberOfIterations; iteration++) {
+			for(State[] stateRows: mdp.getStates()){
+				for(State state: stateRows){
+					Action action = policy.getActionGivenAState(state);
+					double actionSum = 0;
+					if(action != null){
+//						for(State nextState : )
+//						actionSum +=
+					}
+				}
+			}
+		}
+		return utility;
+	}
 }

@@ -12,8 +12,8 @@ public class MDP {
 
 	public MDP(State[][] states, int featureLength) {
 		this.states = states;
-		stateToActionsMap = new HashMap<State, Set<Action>>();
-		stateToRewardMap = new HashMap<State, Reward>();
+		this.stateToActionsMap = new HashMap<State, Set<Action>>();
+		this.stateToRewardMap = new HashMap<State, Reward>();
 		this.featureLength = featureLength;
 		this.setAllActions();
 		this.setRewardsOfAllStates();
@@ -25,6 +25,12 @@ public class MDP {
 		this.featureLength = featureLength;
 	}
 
+	public void setStateAsTerminal(State state){
+		state.setStateAsTerminal();
+		stateToActionsMap.remove(state);
+		stateToActionsMap.put(state, null);
+	}
+	
 	public void setAllActions() {
 		for (State[] stateRow : states) {
 			for (State state : stateRow) {
@@ -68,4 +74,5 @@ public class MDP {
 	public int getFeatureLength() {
 		return featureLength;
 	}
+	
 }
