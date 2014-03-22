@@ -64,4 +64,8 @@ public class MDP {
 	public void setStates(State[][] states) {
 		this.states = states;
 	}
+
+	public int getFeatureLength() {
+		return featureLength;
+	}
 }

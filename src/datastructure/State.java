@@ -12,9 +12,10 @@ import java.util.ArrayList;
 public class State {
 	private int id;
 	private boolean isFinalState;
+	private boolean isVisited; // Used for traversing
 	private ArrayList<State> neighborStates;
 	private Reward reward;
-	
+
 	public State(int id, int featureLength) {
 		super();
 		this.id = id;
@@ -54,17 +55,25 @@ public class State {
 	public void setFeatures(Reward reward) {
 		this.reward = reward;
 	}
-	
-	//TODO this might be redundant
-	public double getRewardValue(double[] weights){
+
+	// TODO this might be redundant
+	public double getRewardValue(double[] weights) {
 		return this.reward.calculateImmediateReward(weights);
+	}
+
+	public boolean isVisited() {
+		return isVisited;
+	}
+
+	public void setVisited(boolean isVisited) {
+		this.isVisited = isVisited;
 	}
 
 	@Override
 	public String toString() {
-	// String is composed of ID and Neighbor ID's
+		// String is composed of ID and Neighbor ID's
 		StringBuffer buffer = new StringBuffer();
-		buffer.append("ID: " + String.valueOf(id) +"\n");
+		buffer.append("ID: " + String.valueOf(id) + "\n");
 		buffer.append("Neighbors: ");
 		for (State neighbor : neighborStates)
 			buffer.append(String.valueOf(neighbor.getId()) + " ");
