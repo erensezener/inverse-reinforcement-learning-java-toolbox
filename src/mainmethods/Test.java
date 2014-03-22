@@ -25,9 +25,6 @@ public class Test {
 			}
 		}
 		
-		MDP mdp = new MDP(featureLength);
-		mdp.setStates(states);
-
 		// System.out.println();
 		// System.out.println(states[0][0].toString());
 
@@ -36,6 +33,10 @@ public class Test {
 				System.out.println(states[i][j].toString());
 			}
 		}
+		
+		MDP mdp = new MDP(states, featureLength);
+		
+		System.out.println();
 	}
 
 	private static void setNextStateOf(State state1, State state2) {
