@@ -13,14 +13,14 @@ public class State {
 	private int id;
 	private boolean isFinalState;
 	private ArrayList<State> neighborStates;
-	private double[] features;
+	private Reward reward;
 	
 	public State(int id, int featureLength) {
 		super();
 		this.id = id;
 		this.isFinalState = false;
 		this.neighborStates = new ArrayList<State>();
-		this.features = new double[featureLength];
+		this.reward = null;
 	}
 
 	public int getId() {
@@ -51,13 +51,13 @@ public class State {
 		this.neighborStates.add(neighborState);
 	}
 
-
-	public double[] getFeatures() {
-		return features;
+	public void setFeatures(Reward reward) {
+		this.reward = reward;
 	}
-
-	public void setFeatures(double[] features) {
-		this.features = features;
+	
+	//TODO this might be redundant
+	public double getRewardValue(double[] weights){
+		return this.reward.calculateImmediateReward(weights);
 	}
 
 	@Override
@@ -70,5 +70,4 @@ public class State {
 			buffer.append(String.valueOf(neighbor.getId()) + " ");
 		return buffer.toString();
 	}
-
 }

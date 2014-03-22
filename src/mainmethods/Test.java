@@ -1,15 +1,17 @@
 package mainmethods;
 
+import datastructure.MDP;
 import datastructure.State;
 
 public class Test {
 
 	public static void main(String[] args) {
+		int featureLength = 1;
 		State[][] states = new State[4][4];
 
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
-				states[i][j] = new State((i) * 4 + j);
+				states[i][j] = new State((i) * 4 + j, featureLength);
 			}
 		}
 
@@ -22,6 +24,9 @@ public class Test {
 
 			}
 		}
+		
+		MDP mdp = new MDP(featureLength);
+		mdp.setStates(states);
 
 		// System.out.println();
 		// System.out.println(states[0][0].toString());
@@ -31,7 +36,6 @@ public class Test {
 				System.out.println(states[i][j].toString());
 			}
 		}
-
 	}
 
 	private static void setNextStateOf(State state1, State state2) {
