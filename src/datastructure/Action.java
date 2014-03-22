@@ -1,4 +1,4 @@
-package data_structure;
+package datastructure;
 
 public abstract class Action {
 	protected State currentState;

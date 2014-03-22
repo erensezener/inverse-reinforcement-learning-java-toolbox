@@ -1,4 +1,4 @@
-package data_structure;
+package datastructure;
 
 public class DeterministicAction extends Action {
 	

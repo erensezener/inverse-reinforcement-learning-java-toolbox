@@ -1,6 +1,6 @@
-package main_methods;
+package mainmethods;
 
-import data_structure.State;
+import datastructure.State;
 
 public class Test {
 

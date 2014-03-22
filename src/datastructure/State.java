@@ -1,7 +1,7 @@
 /**
  * 
  */
-package data_structure;
+package datastructure;
 
 import java.util.ArrayList;
 
@@ -13,16 +13,14 @@ public class State {
 	private int id;
 	private boolean isFinalState;
 	private ArrayList<State> neighborStates;
-	private ArrayList<Action> actions;
 	private double[] features;
 	
-	public State(int id) {
+	public State(int id, int featureLength) {
 		super();
 		this.id = id;
 		this.isFinalState = false;
 		this.neighborStates = new ArrayList<State>();
-		this.actions = new ArrayList<Action>();
-		this.features = null;
+		this.features = new double[featureLength];
 	}
 
 	public int getId() {
@@ -53,22 +51,6 @@ public class State {
 		this.neighborStates.add(neighborState);
 	}
 
-	public ArrayList<Action> getActions() {
-		return actions;
-	}
-
-	public void setActions(ArrayList<Action> actions) {
-		this.actions = actions;
-	}
-
-	/*
-	 * Use this if all neighbors are set
-	 */
-	public void setAllActions() {
-		for (State neighbor : neighborStates) {
-			actions.add(new DeterministicAction(this, neighbor));
-		}
-	}
 
 	public double[] getFeatures() {
 		return features;
