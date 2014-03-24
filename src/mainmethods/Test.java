@@ -2,6 +2,7 @@ package mainmethods;
 
 import datastructure.MDP;
 import datastructure.State;
+import datastructure.States;
 
 public class Test {
 
@@ -33,8 +34,10 @@ public class Test {
 				System.out.println(states[i][j].toString());
 			}
 		}
-		
-		MDP mdp = new MDP(states, featureLength);
+
+        States statesObject = new States(states);
+
+		MDP mdp = new MDP(statesObject, featureLength);
 		
 		System.out.println();
 	}

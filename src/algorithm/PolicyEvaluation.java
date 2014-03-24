@@ -22,16 +22,7 @@ public class PolicyEvaluation {
 	public Utility evaluate() {
 		Utility utility = new Utility();
 		for (int iteration = 0; iteration < numberOfIterations; iteration++) {
-			for(State[] stateRows: mdp.getStates()){
-				for(State state: stateRows){
-					Action action = policy.getActionGivenAState(state);
-					double actionSum = 0;
-					if(action != null){
-//						for(State nextState : )
-//						actionSum +=
-					}
-				}
-			}
+
 		}
 		return utility;
 	}
