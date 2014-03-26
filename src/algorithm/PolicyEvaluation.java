@@ -21,6 +21,9 @@ public class PolicyEvaluation {
         this.mdp = mdp;
     }
 
+    /*
+    Based on the code of Ciaran O'Reilly and Ravi Mohan
+     */
     public Utility evaluate() {
         Utility utility = new Utility();
         for (int iteration = 0; iteration < numberOfIterations; iteration++) {
