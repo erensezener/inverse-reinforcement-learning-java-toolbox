@@ -3,7 +3,7 @@
  */
 package datastructure;
 
-import java.util.TreeMap;
+import java.util.HashMap;
 
 /**
  * A Policy instance is basically a state -> action map
@@ -13,13 +13,13 @@ import java.util.TreeMap;
  *
  */
 public class Policy {
-	private TreeMap<State, Action> stateToActionMap;
-	
-	public Policy(){
-		stateToActionMap = new TreeMap<State, Action>();
-	}
-	
-	public int getNumberfOfMappings(){
+    private HashMap<State, Action> stateToActionMap;
+
+    public Policy(){
+        stateToActionMap = new HashMap<State, Action>();
+    }
+
+    public int getNumberfOfMappings(){
 		return stateToActionMap.size();
 	}
 	

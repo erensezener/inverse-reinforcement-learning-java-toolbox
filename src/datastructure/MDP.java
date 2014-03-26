@@ -35,6 +35,7 @@ public class MDP {
         while(states.hasNext()){
             setAllActionsOfAState(states.next());
         }
+        states.resetIterator();
     }
 
     /*
@@ -69,6 +70,10 @@ public class MDP {
 
     public int getFeatureLength() {
         return featureLength;
+    }
+
+    public Double getTransitionProbability(State state, State neighbor, Action action) {
+        return 1.0; //TODO Change this for stochastic environment
     }
 
 }

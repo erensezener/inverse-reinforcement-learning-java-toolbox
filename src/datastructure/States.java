@@ -22,7 +22,7 @@ public class States implements Iterator<State> {
 
     @Override
     public State next() {
-        return states[iteratorIndex/numberOfRows][iteratorIndex % numberOfColumns]; //TODO Check this
+        return states[iteratorIndex / numberOfRows][iteratorIndex++ % numberOfColumns]; //TODO Check this
     }
 
     @Override
@@ -31,4 +31,12 @@ public class States implements Iterator<State> {
 
     }
 
+    public int getIteratorIndex() {
+        return iteratorIndex;
+    }
+
+    public void resetIterator() {
+        this.iteratorIndex = 0;
+    }
 }
+
